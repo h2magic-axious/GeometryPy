@@ -1,7 +1,7 @@
 from math import hypot
 
 from mathpy.vector import Vector
-from mathpy.geometry2d.point2d import PointCartesian2d
+from mathpy.geometry2d.point2d import Point2d
 
 
 class Line2D:
@@ -16,7 +16,7 @@ class Line2D:
     def vector(self):
         return Vector(-self.B, self.A, 0)
 
-    def distance_with_point(self, point: PointCartesian2d):
+    def distance_with_point(self, point: Point2d):
         abs_value = abs(self.A * point.x + self.B * point.y + self.C)
         hyp_value = hypot(self.A, self.B)
 
