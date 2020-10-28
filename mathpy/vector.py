@@ -59,3 +59,9 @@ class Vector:
 
     def rx_mul(self, other):
         return -self.x_mul(other)
+
+    def collinear(self, other):
+        bool_xy = self.x * other.y == self.y * other.x
+        bool_xz = self.x * other.z == self.z * other.x
+        bool_yz = self.y * other.z == self.z * other.y
+        return bool_xy and bool_xz and bool_yz
