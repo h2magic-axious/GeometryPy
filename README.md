@@ -1,7 +1,8 @@
 # GeometryPy
 
 **GeometryPy** is a math library for compute analytic geometry problem. 
-This library isn't depends on another three-party library such as Sympy or numpy.
+
+This library isn't depending on another third-party library such as Sympy or Numpy .
 
 # Simple Example
 
