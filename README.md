@@ -5,7 +5,7 @@
 In 2D or 3D analytic geometry , this library isn't needing another third-party library such as Sympy or Numpy.
 
 However, if you need to solve N-dimensional analytic geometry, you must use matrix. 
-Therefore, this library will import other libraries (such as Numpy) to solve the matrix problem.
+Therefore, **GeometryPy** will import other libraries (such as Numpy) to solve the matrix problem.
 
 # Simple Example
 
