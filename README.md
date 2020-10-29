@@ -2,7 +2,10 @@
 
 **GeometryPy** is a math library for compute analytic geometry problem. 
 
-This library isn't depending on another third-party library such as Sympy or Numpy .
+In 2D or 3D analytic geometry , this library isn't needing another third-party library such as Sympy or Numpy.
+
+However, if you need to solve N-dimensional analytic geometry, you must use matrix. 
+Therefore, please import other libraries (such as Numpy) to solve the matrix problem.
 
 # Simple Example
 
