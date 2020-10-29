@@ -57,6 +57,10 @@ class Vector:
         else:
             raise ValueError("Vector x mul another vector")
 
+    def length_to_one(self):
+        length = self.length()
+        return Vector(self.x / length, self.y / length, self.z / length)
+
     def rx_mul(self, other):
         return -self.x_mul(other)
 

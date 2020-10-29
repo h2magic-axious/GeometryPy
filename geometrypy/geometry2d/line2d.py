@@ -14,7 +14,7 @@ class Line2d:
         return f"Line: ({self.A}) x + ({self.B}) y + ({self.C}) = 0"
 
     def vector(self):
-        return Vector(-self.B, self.A, 0)
+        return Vector(-self.B, self.A, 0).length_to_one()
 
     def distance_with_point(self, point: Point2d):
         abs_value = abs(self.A * point.x + self.B * point.y + self.C)
