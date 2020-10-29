@@ -1,4 +1,5 @@
-def float_equal(f1, f2, precision=4):
-    pre = 10 ** (-precision)
+from math import fabs, pow
 
-    return abs(f1 - f2) <= pre
+
+def float_equal(f1, f2, precision=4):
+    return fabs(f1 - f2) <= pow(10, -precision)
