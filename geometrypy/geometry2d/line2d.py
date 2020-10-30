@@ -14,7 +14,13 @@ class Line2d:
         return f"Line: ({self.A}) x + ({self.B}) y + ({self.C}) = 0"
 
     def vector(self):
-        return Vector(-self.B, self.A, 0).length_to_one()
+        return Vector(self.B, -self.A, 0).length_to_one()
+
+    def normal_vector(self):
+        return Vector(self.A, self.B, 0).length_to_one()
+
+    def slope(self):
+        return - self.A / self.B
 
     def distance_with_point(self, point: Point2d):
         abs_value = abs(self.A * point.x + self.B * point.y + self.C)
@@ -25,8 +31,8 @@ class Line2d:
     def distance_with_line(self, line):
         try:
             if self.parallel(line):
-                temp = math.gcd(self.A, line.A)
-                return abs(self.C / temp - line.C / temp) / math.hypot(self.A / temp, self.B / temp)
+                g = math.gcd(self.A, line.A)
+                return abs(self.C / g - line.C / g) / math.hypot(self.A / g, self.B / g)
             else:
                 return 0
         except:

@@ -1,4 +1,4 @@
-from math import sqrt
+import math
 
 
 class Vector:
@@ -11,7 +11,7 @@ class Vector:
         return f"Vector({self.x}, {self.y}, {self.z})"
 
     def length(self):
-        return sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
+        return math.sqrt(self.x ** 2 + self.y ** 2 + self.z ** 2)
 
     def __add__(self, other):
         if isinstance(other, Vector):
@@ -48,13 +48,13 @@ class Vector:
 
     # Vector(x,y,z) x Vector(x1, y1, z1)
     def x_mul(self, other):
-        if isinstance(other, Vector):
+        try:
             return Vector(
                 self.y * other.z - self.z * other.y,
                 self.z * other.x - self.x * other.z,
                 self.x * other.y - self.y * other.x
             )
-        else:
+        except:
             raise ValueError("Vector x mul another vector")
 
     def length_to_one(self):
@@ -69,3 +69,9 @@ class Vector:
         bool_xz = self.x * other.z == self.z * other.x
         bool_yz = self.y * other.z == self.z * other.y
         return bool_xy and bool_xz and bool_yz
+
+    def vertical(self, other):
+        try:
+            return math.isclose(self * other, 0)
+        except:
+            raise ValueError("Vector x mul another vector")
