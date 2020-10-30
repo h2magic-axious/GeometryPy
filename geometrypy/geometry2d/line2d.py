@@ -31,8 +31,8 @@ class Line2d:
     def distance_with_line(self, line):
         try:
             if self.parallel(line):
-                g = math.gcd(self.A, line.A)
-                return abs(self.C / g - line.C / g) / math.hypot(self.A / g, self.B / g)
+                k = self.A / line.A
+                return abs(self.C - k * line.C) / math.hypot(self.A, self.B)
             else:
                 return 0
         except:
@@ -48,7 +48,7 @@ class Line2d:
                 v1 = self.vector()
                 v2 = line.vector()
 
-                return math.acos(v1 * v2 / (v1.length() * v2.length()))
+                return math.acos(v1 * v2)
 
         except:
             raise ValueError("Input must be Line2d")
@@ -67,6 +67,9 @@ class Line2d:
 
     def intersect(self, line):
         try:
+            if self.parallel(line):
+                return None
+
             a1b2_a2b1 = self.A * line.B - line.A * self.B
             c1a2_c2a1 = self.C * line.A - line.C * self.A
             c2b1_c1b2 = line.C * self.B - self.C * line.B
@@ -74,9 +77,3 @@ class Line2d:
             return Point2d(c2b1_c1b2 / a1b2_a2b1, c1a2_c2a1 / a1b2_a2b1)
         except:
             raise ValueError("Input must be Line2d")
-
-
-if __name__ == '__main__':
-    line1 = Line2d(1, 0, -1)
-    line2 = Line2d(0, 1, -1)
-    print(line1.angle_with_line(line2))
