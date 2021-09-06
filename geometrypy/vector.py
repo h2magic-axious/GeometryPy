@@ -29,7 +29,7 @@ class Vector:
             raise ValueError("Vector minus another Vector")
 
     def __rsub__(self, other):
-        return self - other
+        return -(self - other)
 
     def __mul__(self, other):
         if isinstance(other, Vector):
